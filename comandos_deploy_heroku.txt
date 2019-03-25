@@ -1,0 +1,45 @@
+Subir aplicaciones ne la NUbe Heroku
+www.heroku.com
+La version gratuita tiene una limitante de 5 aplicaciones en dashboard.
+Si llegan al limiten, deben borrar una de las aplicaciones por medio settings
+
+1.- Hay que crear una aplicacion.
+2.- Hay bajar el heroku-cli, una vez instalado ejecutar heroku -v
+3.- Hay configurar el puerto por medio del process.env.PORT
+4.- Hay que agregar en package.json, en los script crear en el start el comando de partida:start: node server.js
+5.- Heroku trabaja en git (hay que crear el git init, add y commit).
+6.- Ejecutar heroku login (por una unica vez).
+7.- Subir proyecto a heroku:heroku git:remote -a nombre-proyecto
+8.- Luego ejecutar:git push heroku master
+9.- Si todo sale bien, se indicara la Url del proyecto en heroku.
+10.- En vez de la Url en la linea de comando puede ejecutarse:heroku open (esto activa el browser con app).
+
+
+Nota otras formas de subir el proyecto a Heroku
+
+1.- heroku create -h /sin -h (no se especifico nombre, heroku designa uno para la app).
+2.- git remote (devuelve heroku y origin)
+3.- git push heroku master
+4.- ver errores en el despliegue, ejecutar heroku logs
+5.- Al corregir se debe subir los cambios con: git add y commit o git commit -am
+6.- Luego ejecutar:git push heroku master
+
+
+Para base de datos en la nube existe mLab con hasta 500MB libre.
+Hay que usar MongoDB Atlas www.mongodb.com
+
+cuenta atlas free:coronelino1966@gmail.com y clave avogt.123
+usuario:avogt
+password:I6f5zuH1Kwy6I3mx
+
+Usar mongodb compas
+
+Mongo DB Url
+mongodb+srv://avogt:I6f5zuH1Kwy6I3mx@cluster0-9wtf1.mongodb.net/cafe
+
+Hay que actualizar los packages de nodes del proyecto, para esto se ejecuta 
+el siguiente comando: npm update
+
+
+
+
