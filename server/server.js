@@ -14,6 +14,7 @@ app.use( require('./routes/usuario'));
 // parse application/json
 app.use(bodyParser.json())
 
+  console.log("Conexion string Mongo:"+process.env.URLDB);
   mongoose.connect(process.env.URLDB,
        {useNewUrlParser: true,useCreateIndex: true}, 
        (err,res)=>{
