@@ -11,6 +11,30 @@ process.env.PORT = process.env.PORT || 3000;
 process.env.NODE_ENV = process.env.NODE_ENV || 'dev';
 
 //===========================================
+//     Vencimiento del token
+//===========================================
+// 60 segundos
+// 60 minutos
+// 24 horas
+// 30 días
+process.env.CADUCIDAD = 60 * 60 * 24 * 30;
+
+//===========================================
+//     SEED del token
+//===========================================
+process.env.SEED = process.env.SEED || 'este-es-el-seed-desarrollo'
+
+
+
+
+
+
+
+
+
+
+
+//===========================================
 //     Enviroment
 //===========================================
 let urlDB;
@@ -20,9 +44,6 @@ if( process.env.NODE_ENV === 'dev' ){
 }else{
     urlDB= process.env.MONGO_URI;
 }
-console.log("===>process.env.NODE_ENV:",process.env.NODE_ENV);
 process.env.URLDB = urlDB;
-
-console.log("===>process.env.URLDB:",process.env.URLDB);
 
 
