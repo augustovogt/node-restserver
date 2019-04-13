@@ -58,6 +58,11 @@ Usar Tokens.
 Url:jwt.io
 
 
+Utilizando token con Google
+https://developers.google.com/identity/sign-in/web/sign-in?refresh=1
+
+
+
 
 
 
