@@ -59,7 +59,8 @@ Url:jwt.io
 
 
 Utilizando token con Google
-https://developers.google.com/identity/sign-in/web/sign-in?refresh=1
+
+https://console.developers.google.com/apis/credentials?project=signing-curso-de-1554564854924
 
 
 

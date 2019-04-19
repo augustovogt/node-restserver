@@ -16,6 +16,7 @@ app.post('/login',function(req,res){
 
     Usuario.findOne({email: body.email},(err, usuarioDB)=>{
 
+        console.log("Usuario Login",usuarioDB);
         if( err ){
             return res.status(500).json({
                 ok: false,
@@ -31,7 +32,7 @@ app.post('/login',function(req,res){
                 }
             });
         }
-
+        console.log("pass1:["+body.password+"] pass2:["+usuarioDB.password+"]");
         if( !bcrypt.compareSync(body.password, usuarioDB.password)){
             return res.status(500).json({
                 ok: false,
@@ -109,7 +110,7 @@ app.post('/google',async (req,res)=>{
         googleUser= await verify(token)
         console.log('verify');
     }catch( e ){
-        console.log('Catch verify token');
+        console.log('Catch verify token',e);
         return res.status(403).json({
             ok: false,
             err: e
@@ -169,7 +170,7 @@ app.post('/google',async (req,res)=>{
             usuario.email = googleUser.email;
             usuario.img = googleUser.img;
             usuario.google = true;
-            usuario.password = ':)';
+            usuario.password =  bcrypt.hashSync(':)',10);
 
 
             usuario.save ((err,usuarioDB)=>{
