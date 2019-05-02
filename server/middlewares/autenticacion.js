@@ -52,7 +52,34 @@ let verificaAdminRole = ( req, res, next)=>{
 
 }
 
+//=========================================
+// Verificar Token Imagen
+//=========================================
+
+let verificaTokenImg = ( req, res, next)=>{
+    
+    let token = req.query.token;
+
+    jwt.verify( token, process.env.SEED, ( err, decoded)=>{
+
+        console.log('token_decoded',JSON.stringify(decoded));
+        if( err ){
+            res.status(401).json({
+                ok:false,
+                err:{
+                    message:'Token no válido'
+                }
+            });
+        }
+        console.log('verifica_token',decoded.usuario);
+        req.usuario = decoded.usuario;
+        next();
+    });
+    
+}
+
 module.exports={
     verificaToken,
-    verificaAdminRole
+    verificaAdminRole,
+    verificaTokenImg
 }
